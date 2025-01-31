@@ -40,15 +40,24 @@ funciones_trigonometricas = {
     "cos" : Cos
 }
 
-# Le pedimos al usuario una operacion que desee realizar y usamos los metodos lower() y strip() uno para pasar todo a minuscula y el otro para borrar los espacios en blanco
+# Solicita al usuario una operación, convierte la entrada a minúsculas y elimina espacios en blanco.
 operacion = (input("¿Que operacion desea realizar? ")).lower().strip()
 
+# Verifica si la operación ingresada está en el diccionario de funciones aritméticas.
 if operacion in funciones_aritmeticas:
-    num1,num2 = float(input("Numero 1: ")), float(input("Numero 2: "))
-    print(f"La {operacion} entre {num1} y {num2} da como resultado {funciones_aritmeticas[operacion](num1,num2)}")
+    # Solicita dos números al usuario.
+    num1, num2 = float(input("Numero 1: ")), float(input("Numero 2: "))
+    # Ejecuta la operación aritmética seleccionada y muestra el resultado.
+    print(f"La {operacion} entre {num1} y {num2} da como resultado {funciones_aritmeticas[operacion](num1, num2)}")
+
+# Si no es una operación aritmética, verifica si es una función trigonométrica.
 elif operacion in funciones_trigonometricas:
+    # Solicita un número al usuario.
     num1 = float(input("Numero 1: "))
+    # Ejecuta la función trigonométrica seleccionada y muestra el resultado.
     print(f"La funcion {operacion} de {num1} da como resultado {funciones_trigonometricas[operacion](num1)}")
+
+# Si la operación no existe en ninguno de los diccionarios, muestra un mensaje de error.
 else:
-    print(f"La operacion {operacion} no existe,eliga entre {','.join(funciones_aritmeticas)}{','.join(funciones_trigonometricas)}")
-    
+    # Informa al usuario que la operación no existe y lista las opciones disponibles.
+    print(f"La operacion {operacion} no existe, eliga entre {','.join(funciones_aritmeticas)}{','.join(funciones_trigonometricas)}")
